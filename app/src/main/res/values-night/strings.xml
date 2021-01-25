@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Greetings">Welcome To Quiz App</string>
+    <string name="startBtnTxt">Lets Start</string>
+    <string name="quiz">Quizes</string>
+</resources>
