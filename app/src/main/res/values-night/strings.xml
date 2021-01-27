@@ -3,4 +3,6 @@
     <string name="Greetings">Welcome To Quiz App</string>
     <string name="startBtnTxt">Lets Start</string>
     <string name="quiz">Quizes</string>
+    <string name="allQuiz">Quiz List</string>
+    <string name="allQuiz">Quiz List</string>
 </resources>
