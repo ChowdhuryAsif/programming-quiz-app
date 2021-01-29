@@ -5,4 +5,6 @@
     <string name="quiz">Quizes</string>
     <string name="allQuiz">Quiz List</string>
     <string name="HeaderText">All Quiz</string>
+    <string name="addQuizBtn">Add Quiz</string>
+    <string name="containerHeaderText">Quiz Title</string>
 </resources>

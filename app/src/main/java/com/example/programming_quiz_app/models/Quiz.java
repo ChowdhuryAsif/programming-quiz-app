@@ -1,22 +1,27 @@
 package com.example.programming_quiz_app.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz {
 
     private int id;
     private String title;
-    private List<Question> questionList;
+    private ArrayList<Question> questionList;
 
     public Quiz(int id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public Quiz(int id, String title, List<Question> questionList) {
+    public Quiz(int id, String title, ArrayList<Question> questionList) {
         this.id = id;
         this.title = title;
         this.questionList = questionList;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -31,7 +36,12 @@ public class Quiz {
         return questionList;
     }
 
-    public void setQuestionList(List<Question> questionList) {
+    public void setQuestionList(ArrayList<Question> questionList) {
         this.questionList = questionList;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Quiz: id -> %d, Title -> %s", this.id, this.title);
     }
 }
