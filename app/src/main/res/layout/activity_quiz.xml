@@ -7,21 +7,19 @@
     tools:context=".QuizActivity"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
+
+    <TextView
+        android:id="@+id/HeaderText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="@string/allQuiz"
-        android:background="@color/teal_700"
-        android:gravity="center"/>
+        android:text="@string/HeaderText"
+        android:height="40dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
 
     <ListView
+        android:id="@+id/quizListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-
 </LinearLayout>
