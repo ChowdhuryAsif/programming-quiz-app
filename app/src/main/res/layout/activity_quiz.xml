@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuizActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp">
 
 
     <TextView
@@ -21,7 +23,7 @@
     <ListView
         android:id="@+id/quizListView"
         android:layout_width="match_parent"
-        android:layout_height="500dp" />
+        android:layout_height="550dp" />
 
     <Button
         android:id="@+id/button"

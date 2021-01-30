@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.programming_quiz_app.models.Question;
 import com.example.programming_quiz_app.models.Quiz;
 
 import java.io.Serializable;
@@ -37,9 +38,10 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
 
         quizListView = findViewById(R.id.quizListView);
 
-        quizList.add(new Quiz(quizList.size()+1, "C++", new ArrayList<>()));
-        quizList.add(new Quiz(quizList.size()+1, "JAVA", new ArrayList<>()));
-        quizList.add(new Quiz(quizList.size()+1, "Python", new ArrayList<>()));
+        quizList.clear();
+        quizList.add(new Quiz(quizList.size()+1, "C++"));
+        quizList.add(new Quiz(quizList.size()+1, "JAVA"));
+        quizList.add(new Quiz(quizList.size()+1, "Python"));
 
         setListView(quizList);
 
@@ -66,7 +68,7 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addQuizBtnHandler(View view) {
-        ArrayList<Quiz> newQuizList = setItemsOnArrayList(quizList, new Quiz(quizList.size()+1, "JavaScript", new ArrayList<>()));
+        ArrayList<Quiz> newQuizList = setItemsOnArrayList(quizList, new Quiz(quizList.size()+1, "JavaScript"));
 
         setListView(newQuizList);
     }

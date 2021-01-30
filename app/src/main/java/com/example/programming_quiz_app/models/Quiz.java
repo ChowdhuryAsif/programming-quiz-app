@@ -1,12 +1,14 @@
 package com.example.programming_quiz_app.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Quiz {
 
     private int id;
     private String title;
+    private double totalMarks;
     private ArrayList<Question> questionList;
 
     public Quiz(int id, String title) {
@@ -14,10 +16,25 @@ public class Quiz {
         this.title = title;
     }
 
-    public Quiz(int id, String title, ArrayList<Question> questionList) {
+    public Quiz(int id, String title, double totalMarks) {
         this.id = id;
         this.title = title;
+        this.totalMarks = totalMarks;
+        this.questionList = new ArrayList<>();
+    }
+
+    public Quiz(int id, String title, double totalMarks, ArrayList<Question> questionList) {
+        this.id = id;
+        this.title = title;
+        this.totalMarks = totalMarks;
         this.questionList = questionList;
+    }
+
+    public void addQuestion(Question... questions){
+        if(this.questionList == null)
+            this.questionList = new ArrayList<>();
+
+        questionList.addAll(Arrays.asList(questions));
     }
 
     public int getId() {
