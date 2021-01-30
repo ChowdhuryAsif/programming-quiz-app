@@ -1,40 +1,33 @@
 package com.example.programming_quiz_app.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Entity(tableName = "quiz_table")
 public class Quiz {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "quiz_id")
     private int id;
+
+    @ColumnInfo(name = "quiz_title")
     private String title;
+
+    @ColumnInfo(name = "quiz_total_mark")
     private double totalMarks;
-    private ArrayList<Question> questionList;
 
-    public Quiz(int id, String title) {
-        this.id = id;
-        this.title = title;
-    }
-
-    public Quiz(int id, String title, double totalMarks) {
-        this.id = id;
+    public Quiz(String title, double totalMarks) {
         this.title = title;
         this.totalMarks = totalMarks;
-        this.questionList = new ArrayList<>();
     }
 
-    public Quiz(int id, String title, double totalMarks, ArrayList<Question> questionList) {
+    public void setId(int id) {
         this.id = id;
-        this.title = title;
-        this.totalMarks = totalMarks;
-        this.questionList = questionList;
-    }
-
-    public void addQuestion(Question... questions){
-        if(this.questionList == null)
-            this.questionList = new ArrayList<>();
-
-        questionList.addAll(Arrays.asList(questions));
     }
 
     public int getId() {
@@ -49,12 +42,12 @@ public class Quiz {
         this.title = title;
     }
 
-    public List<Question> getQuestionList() {
-        return questionList;
+    public double getTotalMarks() {
+        return totalMarks;
     }
 
-    public void setQuestionList(ArrayList<Question> questionList) {
-        this.questionList = questionList;
+    public void setTotalMarks(double totalMarks) {
+        this.totalMarks = totalMarks;
     }
 
     @Override

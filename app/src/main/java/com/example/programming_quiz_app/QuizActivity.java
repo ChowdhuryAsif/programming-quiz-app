@@ -4,27 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.programming_quiz_app.models.Question;
 import com.example.programming_quiz_app.models.Quiz;
 
-import java.io.Serializable;
-import java.text.DateFormatSymbols;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView quizListView;
 
-    ArrayList<Quiz> quizList = new ArrayList<>();
+    List<Quiz> quizList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +34,14 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
         quizListView = findViewById(R.id.quizListView);
 
         quizList.clear();
-        quizList.add(new Quiz(quizList.size()+1, "C++"));
-        quizList.add(new Quiz(quizList.size()+1, "JAVA"));
-        quizList.add(new Quiz(quizList.size()+1, "Python"));
+        findAll();
 
         setListView(quizList);
 
         quizListView.setOnItemClickListener(this);
     }
 
-    private void setListView(ArrayList<Quiz> newQuizList) {
+    private void setListView(List<Quiz> newQuizList) {
         ArrayAdapter<Quiz> quizAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, newQuizList);
         quizListView.setAdapter(quizAdapter);
     }
@@ -62,14 +55,25 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(intent);
     }
 
-    private ArrayList<Quiz> setItemsOnArrayList(ArrayList<Quiz> list, Quiz newItem){
+    private List<Quiz> setItemsOnList(List<Quiz> list, Quiz newItem){
         list.add(newItem);
         return list;
     }
 
     public void addQuizBtnHandler(View view) {
-        ArrayList<Quiz> newQuizList = setItemsOnArrayList(quizList, new Quiz(quizList.size()+1, "JavaScript"));
+        List<Quiz> newQuizList = setItemsOnList(quizList, new Quiz("JavaScript", 15.00));
 
         setListView(newQuizList);
+    }
+
+    private void findAll() {
+
+        List<Quiz> quizzes;
+        Thread thread = new Thread(() -> {
+            List<Quiz> list = SQLiteRoomDB.getInstance(getApplicationContext()).quizDAO().findAll();
+            quizList.addAll(list);
+        });
+
+        thread.start();
     }
 }
