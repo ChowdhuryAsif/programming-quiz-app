@@ -34,9 +34,7 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
         quizListView = findViewById(R.id.quizListView);
 
         quizList.clear();
-        findAll();
-
-        setListView(quizList);
+        listViewUpdate();
 
         quizListView.setOnItemClickListener(this);
     }
@@ -61,9 +59,15 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addQuizBtnHandler(View view) {
-        List<Quiz> newQuizList = setItemsOnList(quizList, new Quiz("JavaScript", 15.00));
 
-        setListView(newQuizList);
+//        Quiz quiz = new Quiz("JavaScript", 20.00);
+//
+//        Thread thread = new Thread(() -> {
+//            SQLiteRoomDB.getInstance(getApplicationContext()).quizDAO().insertQuiz(quiz);
+//            listViewUpdate();
+//        });
+//        thread.start();
+
     }
 
     private void findAll() {
@@ -75,5 +79,10 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         thread.start();
+    }
+
+    private void listViewUpdate() {
+        findAll();
+        setListView(quizList);
     }
 }

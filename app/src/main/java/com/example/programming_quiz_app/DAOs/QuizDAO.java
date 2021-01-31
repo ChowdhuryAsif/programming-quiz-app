@@ -1,6 +1,7 @@
-package com.example.programming_quiz_app.db;
+package com.example.programming_quiz_app.DAOs;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -22,5 +23,6 @@ public interface QuizDAO {
     Quiz findById(int id);
 
     @Update
-    void updateTodo(Quiz quiz);
+    void updateQuiz(Quiz quiz);
+
 }

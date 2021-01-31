@@ -3,6 +3,7 @@ package com.example.programming_quiz_app.models;
 public class Question {
 
     private int id;
+    private int quizId;
     private String ques;
     private String optionOne;
     private String optionTow;
@@ -17,6 +18,18 @@ public class Question {
         this.optionThree = optionThree;
         this.optionFour = optionFour;
         this.rightAns = rightAns;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getQuizId() {
+        return quizId;
+    }
+
+    public void setQuizId(int quizId) {
+        this.quizId = quizId;
     }
 
     public int getId() {

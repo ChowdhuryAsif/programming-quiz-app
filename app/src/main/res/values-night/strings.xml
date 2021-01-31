@@ -7,4 +7,5 @@
     <string name="HeaderText">All Quiz</string>
     <string name="addQuizBtn">Add Quiz</string>
     <string name="containerHeaderText">Quiz Title</string>
+    <string name="addQuiz">Make Your Quiz</string>
 </resources>
