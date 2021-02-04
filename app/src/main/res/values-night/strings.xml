@@ -8,4 +8,6 @@
     <string name="addQuizBtn">Add Quiz</string>
     <string name="containerHeaderText">Quiz Title</string>
     <string name="addQuiz">Make Your Quiz</string>
+    <string name="saveQuiz">Submit</string>
+    <string name="questionTitle">Question Title</string>
 </resources>

@@ -59,15 +59,9 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addQuizBtnHandler(View view) {
+        Intent intent = new Intent(QuizActivity.this, QuizCreateActivity.class);
 
-//        Quiz quiz = new Quiz("JavaScript", 20.00);
-//
-//        Thread thread = new Thread(() -> {
-//            SQLiteRoomDB.getInstance(getApplicationContext()).quizDAO().insertQuiz(quiz);
-//            listViewUpdate();
-//        });
-//        thread.start();
-
+        startActivity(intent);
     }
 
     private void findAll() {
