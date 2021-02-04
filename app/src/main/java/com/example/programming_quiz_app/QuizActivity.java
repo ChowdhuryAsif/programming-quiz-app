@@ -61,9 +61,9 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addQuizBtnHandler(View view) {
-        List<Quiz> newQuizList = setItemsOnList(quizList, new Quiz("JavaScript", 15.00));
+        Intent intent = new Intent(QuizActivity.this, QuizCreateActivity.class);
 
-        setListView(newQuizList);
+        startActivity(intent);
     }
 
     private void findAll() {

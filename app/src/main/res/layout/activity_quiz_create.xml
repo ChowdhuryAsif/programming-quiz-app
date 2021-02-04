@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".QuizCreateActivity">
+    tools:context=".QuizCreateActivity"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/createQuestion"
-        android:background="@color/teal_700"
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="57dp"
         android:gravity="center"
@@ -20,7 +22,7 @@
 
     <EditText
         android:id="@+id/titleText"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
@@ -28,7 +30,7 @@
 
     <EditText
         android:id="@+id/quesCount"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
@@ -36,35 +38,35 @@
 
     <EditText
         android:id="@+id/quesText"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:text="Write the Question here" />
+        android:hint="@string/questionTitle" />
     <EditText
         android:id="@+id/opA"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:text="First Option" />
     <EditText
         android:id="@+id/opB"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="Second Option" />
     <EditText
         android:id="@+id/opC"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="Third Option" />
     <EditText
         android:id="@+id/opD"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
@@ -72,7 +74,7 @@
 
     <EditText
         android:id="@+id/ansText"
-        android:layout_width="333dp"
+        android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
@@ -83,7 +85,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Save"
+        android:text="@string/saveQuiz"
+        android:onClick="submitQuizButtonHandler"
         />
 
 </LinearLayout>
