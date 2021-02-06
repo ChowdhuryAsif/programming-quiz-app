@@ -1,5 +1,6 @@
 package com.example.programming_quiz_app.DAOs;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -17,7 +18,7 @@ public interface QuizDAO {
     void insertQuiz(Quiz quiz);
 
     @Query("SELECT * FROM quiz_table")
-    List<Quiz> findAll();
+    LiveData<List<Quiz>> findAll();
 
     @Query("SELECT * FROM quiz_table WHERE quiz_id LIKE :id")
     Quiz findById(int id);

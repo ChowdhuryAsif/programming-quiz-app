@@ -1,6 +1,8 @@
 package com.example.programming_quiz_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,30 +55,32 @@ public class QuizActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(intent);
     }
 
-    private List<Quiz> setItemsOnList(List<Quiz> list, Quiz newItem){
+    private List<Quiz> setItemOnList(List<Quiz> list, Quiz newItem){
         list.add(newItem);
         return list;
     }
 
     public void addQuizBtnHandler(View view) {
-        Intent intent = new Intent(QuizActivity.this, QuizCreateActivity.class);
+//        Intent intent = new Intent(QuizActivity.this, QuizCreateActivity.class);
+//
+//        startActivity(intent);
 
-        startActivity(intent);
-    }
-
-    private void findAll() {
-
-        List<Quiz> quizzes;
         Thread thread = new Thread(() -> {
-            List<Quiz> list = SQLiteRoomDB.getInstance(getApplicationContext()).quizDAO().findAll();
-            quizList.addAll(list);
+           SQLiteRoomDB.getInstance(getApplicationContext())
+                   .quizDAO()
+                   .insertQuiz(new Quiz("GoLang", 50.00));
         });
-
         thread.start();
     }
 
     private void listViewUpdate() {
-        findAll();
-        setListView(quizList);
+        LiveData<List<Quiz>> liveData = SQLiteRoomDB.getInstance(getApplicationContext()).quizDAO().findAll();
+
+        liveData.observe(this, new Observer<List<Quiz>>() {
+            @Override
+            public void onChanged(List<Quiz> quizzes) {
+                setListView(quizzes);
+            }
+        });
     }
 }
