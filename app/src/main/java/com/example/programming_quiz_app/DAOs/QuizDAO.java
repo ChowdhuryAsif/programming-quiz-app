@@ -18,7 +18,7 @@ public interface QuizDAO {
     void insertQuiz(Quiz quiz);
 
     @Query("SELECT * FROM quiz_table")
-    LiveData<List<Quiz>> findAll();
+    List<Quiz> findAll();
 
     @Query("SELECT * FROM quiz_table WHERE quiz_id LIKE :id")
     Quiz findById(int id);
