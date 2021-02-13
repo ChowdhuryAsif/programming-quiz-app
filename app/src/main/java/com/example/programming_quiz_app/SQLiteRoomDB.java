@@ -6,13 +6,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.programming_quiz_app.DAOs.QuizDAO;
-import com.example.programming_quiz_app.models.Quiz;
+import com.example.programming_quiz_app.DAOs.QuestionDao;
+import com.example.programming_quiz_app.models.Questions;
 
-@Database(entities = {Quiz.class}, version = 1)
+@Database(entities = {Questions.class}, version = 1)
 public abstract class SQLiteRoomDB extends RoomDatabase {
 
-    public abstract QuizDAO quizDAO();
+    public abstract QuestionDao quizDAO();
 
     private static volatile SQLiteRoomDB INSTANCE;
 

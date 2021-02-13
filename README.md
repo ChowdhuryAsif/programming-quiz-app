@@ -1,1 +1,1 @@
-# programming-quiz-app
+# programming-questions-app
