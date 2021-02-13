@@ -40,7 +40,7 @@ public class Questions {
         this.answer = answer;
     }
 
-    Questions() {
+    public Questions() {
         this.id = id;
         this.question = question;
         this.optA = optA;
