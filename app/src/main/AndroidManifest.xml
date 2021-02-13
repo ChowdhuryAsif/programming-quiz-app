@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgrammingQuizApp">
-        <activity android:name=".TimerDialog"></activity>
+        <activity android:name=".WrongDialog"></activity>
+        <activity android:name=".TimerDialog" />
         <activity android:name=".CorrectDialog" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".QuizActivity" />
