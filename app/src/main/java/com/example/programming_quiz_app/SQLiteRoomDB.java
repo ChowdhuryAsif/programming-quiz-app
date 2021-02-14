@@ -59,14 +59,16 @@ public abstract class SQLiteRoomDB extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids){
 
-
-            questionDao.insert(new Questions("What is Android?","OS","Browser","Software","Hard Drive",1));
-            questionDao.insert(new Questions("RAM Stands for what ?","Operating System","Browser","Random Access Memory","CD Project",3));
-            questionDao.insert(new Questions("Chrome is what ?","System Software","Browser","Middle Ware","Windows",2));
-            questionDao.insert(new Questions("HTML is what ?","Scipting Language","Programming Language","Software","Hyper Text Markup Language",4));
-            questionDao.insert(new Questions("Unity is used for ?","Game Developement","Web Development","Graphics Design","3-D Modling",2));
-            questionDao.insert(new Questions("What is OS","Hardware","System Software","PC Software","Hard Drive",2));
-            questionDao.insert(new Questions("IP stand for what? ","Language","Intenet Protocol","Graphics","Random",2));
+            questionDao.insert(new Questions("In C++, the token // is used for:","integer division","concatenation","comments","exponentiation",3));
+            questionDao.insert(new Questions("Finding and fixing problems in code is known as...","Coding","Automating","Debugging","Programming",3));
+            questionDao.insert(new Questions("Computers need instructions that are _______.","Wordy","Tricky","Specific","Interesting",3));
+            questionDao.insert(new Questions("What must every line of code end with in Python?","comma,","semi-colon ;","parantheses ()","period .",2));
+            questionDao.insert(new Questions("In C++, cout is found in which library file?","ctype.h","stdlib.h","math.h","iostream.h",4));
+            questionDao.insert(new Questions("The notation of ternary operator is","&","?","|","~",2));
+            questionDao.insert(new Questions("Compiler generates ___ file.","Executable code","Object code","Assembly code","None of the above.",2));
+            questionDao.insert(new Questions("The notation of logical NOT operator in a C++ program is",":",";","!","None of the Above",4));
+            questionDao.insert(new Questions("Which of the following denotes the C++ looping statement?", "Do-while","For","None","Both",4));
+            questionDao.insert(new Questions("How many values can be returned by a C++ function?", "1","0","Infinity","None",1));
             return null;
         }
     }
