@@ -19,17 +19,18 @@ public abstract class SQLiteRoomDB extends RoomDatabase {
 
     private static volatile SQLiteRoomDB INSTANCE;
 
-    static SQLiteRoomDB getInstance(Context context) {
-        if (INSTANCE == null) {
-            synchronized (SQLiteRoomDB.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            SQLiteRoomDB.class, "Quiz_Database")
-                            .build();
-                }
-            }
+    public static synchronized SQLiteRoomDB getInstance(final Context context){
+
+        if (INSTANCE == null){
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                    SQLiteRoomDB.class, "questions_database")
+                    .fallbackToDestructiveMigration()
+                    .addCallback(RoomDBCallback)
+                    .build();
         }
+
         return INSTANCE;
+
     }
 
     private static RoomDatabase.Callback RoomDBCallback = new RoomDatabase.Callback(){
