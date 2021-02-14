@@ -25,6 +25,7 @@ import com.example.programming_quiz_app.models.Questions;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -136,10 +137,13 @@ public class QuizActivity extends AppCompatActivity {
 
         questionTotalCount = quesList.size();
         // shuffling the ques list for random ques
-        Collections.shuffle(quesList);
+
+        Random random = new Random();
+        int randPos = random.nextInt(questionTotalCount);
+//        Collections.shuffle(quesList);
         if (questionCounter < questionTotalCount -1){
 
-            currentQ = quesList.get(questionCounter);
+            currentQ = quesList.get(randPos);
 
             txtQuestion.setText(currentQ.getQuestion());
             rb1.setText(currentQ.getOptA());
