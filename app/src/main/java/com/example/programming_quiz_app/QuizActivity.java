@@ -51,9 +51,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private Handler handler = new Handler();
 
-    private int correctAns = 0,wrongAns =0;
-
-    private int score=0;
+    private int correctAns = 0,wrongAns = 0, score = 0;
 
     private TimerDialog timerDialog;
     private WrongDialog wrongDialog;
@@ -63,6 +61,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private int FLAG = 0;
 
+    // set timer for quiz=======
     private static final long COUNTDOWN_IN_MILLIS = 30000;
     private CountDownTimer countDownTimer;
     private long timeLeftinMillis;
@@ -74,12 +73,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
         setupUI();
 
-        textColorofButtons = rb1.getTextColors();  // this is used to change the text colors of the buttons
-
-
+        textColorofButtons = rb1.getTextColors();
 
         timerDialog =  new TimerDialog(this);
         wrongDialog =  new WrongDialog(this);
@@ -139,6 +135,7 @@ public class QuizActivity extends AppCompatActivity {
         rb4.setTextColor(Color.BLACK);
 
         questionTotalCount = quesList.size();
+        // shuffling the ques list for random ques
         Collections.shuffle(quesList);
         if (questionCounter < questionTotalCount -1){
 
@@ -171,9 +168,7 @@ public class QuizActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
                     resultData();
-
                 }
             },2000);
         }

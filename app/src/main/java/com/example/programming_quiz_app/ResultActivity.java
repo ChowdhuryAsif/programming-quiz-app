@@ -60,10 +60,9 @@ public class ResultActivity extends AppCompatActivity {
         int wrongQuestion = intent.getIntExtra("WrongQuestions",0);
 
 
-        txtTotalQuizQuestion.setText("Total Questions: " + String.valueOf(totalQuestion));
-        txtCorrectQuestion.setText("Correct Questions: " + String.valueOf(correctQuestions));
-        txtWrongQuestion.setText("Wrong Questions: " + String.valueOf(wrongQuestion));
-
+        txtTotalQuizQuestion.setText("Total Questions: " + totalQuestion);
+        txtCorrectQuestion.setText("Correct Answer: " + correctQuestions);
+        txtWrongQuestion.setText("Wrong Answer: " + wrongQuestion);
 
         if (score > highScore) updateScore(score);
     }
