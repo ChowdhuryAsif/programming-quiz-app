@@ -3,16 +3,17 @@
     android:orientation="vertical"
     android:layout_width="300dp"
     android:layout_gravity="center"
-    android:layout_height="250dp">
+    android:layout_height="250dp"
+    android:background="#e7b3b3">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wrong"
+        android:text="Wrong Answer"
         android:padding="5dp"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#ff5959"
         android:layout_gravity="center"
         android:textSize="30sp"
         />
@@ -20,7 +21,7 @@
         android:id="@+id/textView_Correct_Answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Final Score: "
+        android:text="CA: "
         android:singleLine="true"
         android:ellipsize="end"
         android:paddingLeft="2dp"
@@ -28,7 +29,7 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:textStyle="bold"
-        android:textColor="#000000"
+        android:textColor="#f5eded"
         android:layout_gravity="center"
         android:textSize="22sp"
         android:layout_marginTop="50dp"
