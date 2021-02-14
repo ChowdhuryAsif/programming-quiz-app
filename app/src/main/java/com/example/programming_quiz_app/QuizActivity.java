@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.programming_quiz_app.models.Questions;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -60,7 +61,6 @@ public class QuizActivity extends AppCompatActivity {
 
     private int totalSizeofQuiz;
 
-    private int FLAG = 0;
 
     // set timer for quiz=======
     private static final long COUNTDOWN_IN_MILLIS = 30000;
@@ -73,6 +73,8 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        insertNewData();
 
         setupUI();
 
@@ -94,6 +96,35 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
         Log.i("QuizActivity","onCreate() in QuizActivity");
+    }
+
+    private void insertNewData() {
+        List<Questions> questionsList = new ArrayList<>();
+
+        questionsList.add(new Questions("In C++, the token is used for:","integer division","concatenation","comments","exponentiation",3));
+        questionsList.add(new Questions("In C++, the token is used for:","integer division","concatenation","comments","exponentiation",3));
+        questionsList.add(new Questions("Finding and fixing problems in code is known as...","Coding","Automating","Debugging","Programming",3));
+        questionsList.add(new Questions("Computers need instructions that are _______.","Wordy","Tricky","Specific","Interesting",3));
+        questionsList.add(new Questions("What must every line of code end with in Python?","comma,","semi-colon ;","parantheses ()","period .",2));
+        questionsList.add(new Questions("In C++, cout is found in which library file?","ctype.h","stdlib.h","math.h","iostream.h",4));
+        questionsList.add(new Questions("The notation of ternary operator is","&","?","|","~",2));
+        questionsList.add(new Questions("Compiler generates ___ file.","Executable code","Object code","Assembly code","None of the above.",2));
+        questionsList.add(new Questions("The notation of logical NOT operator in a C++ program is",":",";","!","None of the Above",4));
+        questionsList.add(new Questions("Which of the following denotes the C++ looping statement?", "Do-while","For","None","Both",4));
+        questionsList.add(new Questions("How many values can be returned by a C++ function?", "1","0","Infinity","None",1));
+
+
+//        for(int i=0; i<questionsList.size(); i++){
+//            final Questions q = questionsList.get(i);
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    SQLiteRoomDB.getInstance(QuizActivity.this.getApplicationContext())
+//                            .questionDao()
+//                            .insert(q);
+//                }
+//            }).start();
+//        }
     }
 
 
@@ -138,12 +169,10 @@ public class QuizActivity extends AppCompatActivity {
         questionTotalCount = quesList.size();
         // shuffling the ques list for random ques
 
-        Random random = new Random();
-        int randPos = random.nextInt(questionTotalCount);
-//        Collections.shuffle(quesList);
+        Collections.shuffle(quesList);
         if (questionCounter < questionTotalCount -1){
 
-            currentQ = quesList.get(randPos);
+            currentQ = quesList.get(questionCounter);
 
             txtQuestion.setText(currentQ.getQuestion());
             rb1.setText(currentQ.getOptA());
@@ -412,7 +441,6 @@ public class QuizActivity extends AppCompatActivity {
         resultofQuiz.putExtra("CorrectQuestions",correctAns);
         resultofQuiz.putExtra("WrongQuestions",wrongAns);
         startActivity(resultofQuiz);
-
     }
 
 
